@@ -1,0 +1,70 @@
+using System;
+
+namespace MusicPlayer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to the Music Player!");
+            Console.WriteLine("1. Play");
+            Console.WriteLine("2. Pause");
+            Console.WriteLine("3. Stop");
+            Console.WriteLine("4. Exit");
+
+            int choice;
+            bool isPlaying = false;
+
+            do
+            {
+                Console.Write("Enter your choice: ");
+                choice = Convert.ToInt32(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        if (!isPlaying)
+                        {
+                            Console.WriteLine("Playing music...");
+                            isPlaying = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Music is already playing.");
+                        }
+                        break;
+                    case 2:
+                        if (isPlaying)
+                        {
+                            Console.WriteLine("Pausing music...");
+                            isPlaying = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Music is not currently playing.");
+                        }
+                        break;
+                    case 3:
+                        if (isPlaying)
+                        {
+                            Console.WriteLine("Stopping music...");
+                            isPlaying = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Music is not currently playing.");
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Goodbye!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+
+                Console.WriteLine();
+            } while (choice != 4);
+        }
+    }
+}
